@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 16:50:57 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 19:03:47 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/12 01:26:20 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	int	num_printed;
-
-	num_printed = write(1, &c, 1);
-	if (num_printed < 0)
-		return (0);
-	return (num_printed);
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *s)
@@ -31,14 +26,16 @@ int	ft_putstr(char *s)
 	if (s == 0)
 	{
 		buf = write(1, "(null)", 6);
-		if (buf >= 0)
-			return (buf);
+		if (buf == -1)
+			return (-1);
+		return (buf);
 	}
 	while (*s)
 	{
 		buf = write(1, s++, 1);
-		if (buf >= 0)
-			num_printed += buf;
+		if (buf == -1)
+			return (-1);
+		num_printed += buf;
 	}
 	return (num_printed);
 }
@@ -46,21 +43,29 @@ int	ft_putstr(char *s)
 int	ft_putnbr(long n)
 {
 	int	num_printed;
+	int	buf[2];
 
-	num_printed = 0;
+	buf[0] = 0;
+	buf[1] = 0;
 	if (n < 0)
 	{
-		num_printed += ft_putchar('-');
-		num_printed += ft_putnbr(-1 * n);
+		if (ft_putchar('-') == -1)
+			return (-1);
+		buf[0] = ft_putnbr(-1 * n);
+		buf[0] += (buf[0] != -1);
 	}
-	else if (n > 9)
+	else if (n > 9 && n / 10 > 0)
 	{
-		if (n / 10 > 0)
-			num_printed += ft_putnbr(n / 10);
-		num_printed += ft_putchar(n % 10 + '0');
+		buf[0] = ft_putnbr(n / 10);
+		if (buf[0] == -1)
+			return (-1);
+		buf[1] = ft_putchar(n % 10 + '0');
 	}
 	else
-		num_printed += ft_putchar(n + '0');
+		buf[0] = ft_putchar(n + '0');
+	if (buf[0] == -1 || buf[1] == -1)
+		return (-1);
+	num_printed = buf[0] + buf[1];
 	return (num_printed);
 }
 
@@ -70,15 +75,24 @@ int	ft_puthex(uintptr_t n, int print_upper)
 	char	*hex_lower;
 	char	*hex_upper;
 	int		num_printed;
+	int		buf[2];
 
 	hex_lower = "0123456789abcdef";
 	hex_upper = "0123456789ABCDEF";
 	hex = hex_lower;
+	buf[0] = 0;
+	buf[1] = 0;
 	if (print_upper)
 		hex = hex_upper;
-	num_printed = 0;
 	if (n >= 16)
-		num_printed += ft_puthex(n / 16, print_upper);
-	num_printed += ft_putchar(hex[n % 16]);
+	{
+		buf[0] = ft_puthex(n / 16, print_upper);
+		if (buf[0] == -1)
+			return (-1);
+	}
+	buf[1] = ft_putchar(hex[n % 16]);
+	if (buf[1] == -1)
+		return (-1);
+	num_printed = buf[0] + buf[1];
 	return (num_printed);
 }
