@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:20:35 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 17:18:44 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:58:53 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,4 @@ int	ft_printf(const char *s, ...)
 	}
 	va_end(args);
 	return (num_printed);
-}
-
-void	wrapper(va_list args)
-{
-	va_arg(args, char *);
-}
-
-void	test(int n, ...)
-{
-	va_list	args;
-	char	*arg;
-
-	va_start(args, n);
-	printf("%c\n", (char)va_arg(args, int));
-	arg = va_arg(args, char *);
-	printf("%s\n", arg);
-	va_end(args);
 }

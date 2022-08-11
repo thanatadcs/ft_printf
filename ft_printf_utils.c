@@ -6,13 +6,11 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 16:50:57 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 17:20:15 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:59:26 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#define LOWER 0
-#define UPPER 1
 
 int	ft_putchar(char c)
 {
