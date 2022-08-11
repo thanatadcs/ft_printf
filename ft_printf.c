@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:20:35 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/12 00:52:37 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/12 01:51:14 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	check_flag(const char *s, va_list *args_ptr)
 {
-	int		to_return;
+	int	to_return;
 
 	to_return = 0;
 	if (*s == 'c')
