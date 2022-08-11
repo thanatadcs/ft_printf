@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:23:46 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 18:59:37 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:04:44 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-
-# define LOWER 0
-# define UPPER 1
 
 int	ft_putchar(char c);
 int	ft_putstr(char *s);

@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:20:35 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 17:58:53 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:04:06 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ static int	check_flag(const char *s, va_list *args_ptr)
 		to_return = ft_putstr(va_arg(*args_ptr, char *));
 	else if (*s == 'p')
 		to_return = ft_putstr("0x") + \
-		ft_puthex(va_arg(*args_ptr, uintptr_t), LOWER);
+		ft_puthex(va_arg(*args_ptr, uintptr_t), 0);
 	else if (*s == 'd' || *s == 'i')
 		to_return = ft_putnbr(va_arg(*args_ptr, int));
 	else if (*s == 'u')
 		to_return = ft_putnbr(va_arg(*args_ptr, unsigned int));
 	else if (*s == 'x')
-		to_return = ft_puthex(va_arg(*args_ptr, unsigned int), LOWER);
+		to_return = ft_puthex(va_arg(*args_ptr, unsigned int), 0);
 	else if (*s == 'X')
-		to_return = ft_puthex(va_arg(*args_ptr, unsigned int), UPPER);
+		to_return = ft_puthex(va_arg(*args_ptr, unsigned int), 1);
 	else if (*s == '%')
 		to_return = ft_putchar(*s);
 	else if (*s != '\0')

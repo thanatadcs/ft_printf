@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 16:50:57 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 17:59:26 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:03:47 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_putnbr(long n)
 	return (num_printed);
 }
 
-int	ft_puthex(uintptr_t n, int mode)
+int	ft_puthex(uintptr_t n, int print_upper)
 {
 	char	*hex;
 	char	*hex_lower;
@@ -74,11 +74,11 @@ int	ft_puthex(uintptr_t n, int mode)
 	hex_lower = "0123456789abcdef";
 	hex_upper = "0123456789ABCDEF";
 	hex = hex_lower;
-	if (mode == UPPER)
+	if (print_upper)
 		hex = hex_upper;
 	num_printed = 0;
 	if (n >= 16)
-		num_printed += ft_puthex(n / 16, mode);
+		num_printed += ft_puthex(n / 16, print_upper);
 	num_printed += ft_putchar(hex[n % 16]);
 	return (num_printed);
 }
