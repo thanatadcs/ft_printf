@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:23:46 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/11 17:19:35 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 18:59:37 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
 # include <unistd.h>
 
 # define LOWER 0
