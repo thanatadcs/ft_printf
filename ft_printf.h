@@ -6,7 +6,7 @@
 /*   By: tanukool <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:23:46 by tanukool          #+#    #+#             */
-/*   Updated: 2022/08/10 20:42:50 by tanukool         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:19:35 by tanukool         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,13 @@
 # include <stdio.h>
 # include <unistd.h>
 
-typedef struct s_conv
-{
-	char	flag;
-	int		(*func)(void *);
-}	t_conv;
+# define LOWER 0
+# define UPPER 1
 
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(long n);
-int	ft_puthex_lower(uintptr_t n);
-int	ft_puthex_upper(unsigned int n);
-int	ft_printf(const char *, ...);
+int	ft_puthex(uintptr_t n, int mode);
+int	ft_printf(const char *s, ...);
 
 #endif
-
